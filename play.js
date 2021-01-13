@@ -11,15 +11,13 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
 
-  conn.on('data', function(data) {
-    console.log('you ded cuz you idled')
-  });
-
   return conn;
 }
 
+
 console.log('Connecting ...');
+var establishConn = connect();
 
-
-connect();
-
+establishConn.on('data', function(data) {
+console.log(data)
+})
