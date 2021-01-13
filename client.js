@@ -11,6 +11,13 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
 
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server"');
+    conn.write('Name: GGG');
+    conn.write('Move: up');
+  });
+
+
   return conn;
 }
 
@@ -21,5 +28,9 @@ var establishConn = connect();
 establishConn.on('data', function(data) {
 console.log(data)
 })
+
+
+
+
 
 module.exports = {connect};
